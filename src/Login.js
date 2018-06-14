@@ -3,8 +3,10 @@ import {
 	Text, 
 	View, 
 	TouchableOpacity,
+	Alert
 } from 'react-native';
 import {StackNavigator} from 'react-navigation';
+import {Button} from 'react-native-elements'
 
 const styles = require('./style/Styles');
 const FBSDK = require('react-native-fbsdk');
@@ -12,6 +14,27 @@ const {
   LoginManager,
   AccessToken
 } = FBSDK;
+
+/*
+	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Важно!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	Это не окончательная версия программы, у меня осталось очень
+	много идей по поводу реализации, повышения эффективности
+	и уменьшения массива кода за счет наследований и т. д., 
+	В коде будут попадатся аналогичные методы, особенно связанные с StyleSheet,
+	Facebook и SideBar и я в течении ближайшего времени 
+	займусь оптимизацией и структурированием, но в виду того что сроки
+	уже на носу я скидываю рабочую реализацию в таком виде, какая она есть сейчас.
+	В ближайшее время я планирую добавить:
+	- Навигация с помощью navigate а не replace,
+	- Плавные переходы между страницами,
+	- Лого приложения на титульной странице, 
+	- Поправить шрифты и их размеры на всех страницах, 
+	- Оптимизировать код,
+	- Добавить обновление погоды,
+	- Больше элементов материал дизайна, и т. д.
+	Надеюсь что данная версия будет хорошим результатом с вашей стороны.
+	Спасибо.
+*/
 
 export default class Login extends React.Component{
 	constructor(props) {
@@ -46,14 +69,13 @@ export default class Login extends React.Component{
 		LoginManager.logInWithReadPermissions(["email","public_profile"]).then(
 			(result) =>{
 				if (result.isCancelled) {
-					console.log('Login cancelled');
+					Alert.alert('Login cancelled: ' + result);
 				}else{
-					console.log('Login success');
 					this.props.navigation.replace('Forecast');
 				}
 			},
 			(error) => {
-				console.log('Login fail with error: ' + error);
+				Alert.alert('Login fail with error: ' + error);
 			}
 		);
 	}
@@ -76,13 +98,21 @@ export default class Login extends React.Component{
 								<Text style={styles.textFont}>Welcome to Weather forecast App!</Text>
 								<Text style={styles.textFont}>Login with your Facebook account.</Text>
 							</View>
-							
-							<TouchableOpacity
-								style = {[styles.button,styles.loginButton,styles.centered]}
-								onPress = {() => {this.loginUser()}}
-							>
-							<Text style={styles.textFont}>Login with Facebook</Text>
-							</TouchableOpacity>
+							<Button
+								containerViewStyle={{
+									marginLeft: 0,
+									width: '100%',
+								}}
+								buttonStyle={{
+									height: 40,
+									backgroundColor: '#428bca',
+								}}
+								title='Login with Facebook'
+								onPress = {() => {
+									this.loginUser()
+								}}
+							/>
+
 						</View>
 
 					</View>
