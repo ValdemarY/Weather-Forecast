@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Forecast</string>
+	<string name="facebook_app_id">389600384877166</string>
+	<string name="fb_login_protocol_scheme">fb389600384877166</string>
+</resources>
