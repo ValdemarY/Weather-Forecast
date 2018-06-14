@@ -10,46 +10,30 @@ import {
 } from 'react-native';
 
 const windowSize = require('Dimensions').get('window');
+
 const deviceWidth = windowSize.width;
 const deviceHeight = windowSize.height;
 
+const availWidth = windowSize.width-20-20;
+const availHeight = windowSize.height-20-20;
+
 module.exports = StyleSheet.create({
 	//стили использущиеся всеми скринами из StackNavigator
-
 	screenContainer:{
 		flex: 1,
 		backgroundColor: '#428bca',
-		borderWidth: 5,
-		borderColor: '#5bc0de',
 	},
 
 	componentContainer:{
 		flex:1,
 		margin:10,
 		padding:10,
-		borderWidth:5,
-		borderColor:'#5bc0de',
 		backgroundColor:'#f9f9f9',
-	},
-
-	textColor:{
-		color:'#f9f9f9',
-	},
-
-	buttonContainer:{
-		flex:1,
 	},
 
 	textFont:{
 		fontFamily: 'Vollkorn-Regular',
 		fontSize: 16,
-	},
-
-	button:{
-		height:40,
-		borderWidth:1,
-		borderColor:'#428bca',
-		backgroundColor:'#5bc0de',
 	},
 
 	centered:{
@@ -66,16 +50,15 @@ module.exports = StyleSheet.create({
 	},
 
 	//стили для Login
-
 	contentContainer:{
 		flex: 1,
-		marginTop:deviceWidth/7,
-		marginBottom:deviceWidth/7,
+		marginTop:10,
+		marginBottom:10,
 	},
 
 	appName:{
 		position: 'absolute',
-		top: 2*deviceWidth/7,
+		top: 3*availWidth/7,
 		right: 10,
 		left: 10,
 	},
@@ -87,7 +70,7 @@ module.exports = StyleSheet.create({
 
 	loginFacebookContainer:{
 		position: 'absolute',
-		bottom: 2*deviceWidth/7,
+		bottom: 3*availWidth/7,
 		right: 10,
 		left: 10,
 	},
@@ -96,58 +79,118 @@ module.exports = StyleSheet.create({
 		marginBottom: 10,
 	},
 
+	//стили для SideBar
+
+	sideBarContainer:{
+		flex:1,
+		backgroundColor: '#7adaf6',
+	},
+
+		sideBarView:{
+			flex:1,
+			margin:10,
+		},
+
 	//стили для Forecast
-
 	weatherContainer:{
-		flex:2,
-		marginBottom: 10,
-		borderBottomWidth: 1,
-		borderColor: '#5bc0de'
-	},
-
-			userAndTemperatureContainer:{
-				flexDirection: 'row',
-				flex:1,
-				borderBottomWidth: 1,
-				borderColor: '#5bc0de'
-			},
-
-					userContainer:{
-						flex:2,
-						padding:10,
-						borderRightWidth: 1,
-						borderColor: '#5bc0de'
-					},
-
-					temperatureContainer:{
-						flex:1.5,
-					},
-
-			weatherDataContainer:{
-				flex:2,
-			},
-
-	temperatureFont:{
-		fontFamily: 'Vollkorn-Regular',
-		fontSize: deviceWidth/13,
-	},
-
-	buttonWeather:{
-		flex:1,
-		backgroundColor: '#428bca',
-	},
-
-	buttonLocation:{
-		flex:1,
-		backgroundColor: '#5cb85c',
-	},
-
-	advancedForecastText:{
+		borderWidth: 1,
+		borderColor: '#c0c5ce',
+		flex: 3,
 		marginBottom: 10,
 	},
+
+		cityName:{
+			paddingLeft: 10,
+			paddingRight: 10,
+			height:availHeight/14,
+			justifyContent: 'center',
+			alignItems: 'flex-start',
+		},
+
+		weatherStatus:{
+			borderTopWidth: 1,
+			borderColor: '#c0c5ce',
+			paddingLeft: 10,
+			paddingRight: 10,
+			height:availHeight/14,
+			justifyContent:'flex-start',
+			alignItems:'center',
+			flexDirection: 'row', 
+		},
+
+		weatherInfo:{
+			flex: 1,
+			flexDirection: 'row',
+		},
+
+			temperature:{
+				flex: 1,
+				alignItems:'center',
+				justifyContent:'center',
+			},
+
+			weatherIcon:{
+				flex: 1,
+				justifyContent:'center',
+				alignItems:'center',
+			},
+				
+				iconCircle:{
+					width: availHeight/6,
+					height: availHeight/6,
+					borderRadius: 100/2,
+					backgroundColor: 'white',
+					justifyContent:'center',
+					alignItems:'center',
+				},
+
+		humidityInfo:{
+			paddingLeft: 10,
+			paddingRight: 10,
+			height:availHeight/14,
+			justifyContent: 'center',
+			alignItems: 'flex-start',
+		},
+
+		pressureInfo:{
+			borderTopWidth: 1,
+			borderColor: '#c0c5ce',
+			paddingLeft: 10,
+			paddingRight: 10,
+			height:availHeight/14,
+			justifyContent: 'center',
+			alignItems: 'flex-start',
+		},
+
+	weatherButtonContainer:{
+		borderWidth: 1,
+		borderColor: '#c0c5ce',
+		flex: 1,
+		marginBottom: 10,
+	},
+		weatherImage:{
+			flex:1,
+		},
+
+		weatherButton:{
+			flex:1,
+		},
+
+	locationButtonContainer:{
+		borderWidth: 1,
+		borderColor: '#c0c5ce',
+		flex: 1,
+	},
+
+		locationImage:{
+			flex:1,
+		},
+
+		locationButton:{
+			flex:1,
+		},
 
 	//стили для Location
-
 	locationContainer:{
 		borderWidth: 0,
 	},
@@ -157,15 +200,25 @@ module.exports = StyleSheet.create({
 	},
 
 	buttonLocationMap:{
-		position:'absolute', 
-		bottom: 0,
-		
-		width: deviceWidth,
-		height: 40,
-		
-		alignItems: 'center',
+		height: availHeight/16,
+		backgroundColor: '#3570a3'
+	},
+
+	connectionErrorContainer:{
+		flex: 1,
+		backgroundColor: '#d9534f',
+	},
+
+	connectionErrorView:{
+		flex:1,
+		margin: 10,
 		justifyContent: 'center',
-		backgroundColor: '#3570a3',
+		alignItems: 'center',
+	},
+
+	errorButton:{
+		height:availHeight/16,
+		backgroundColor: '#9f3c39'
 	},
 
 	//стили для AdvancedForecast
@@ -173,31 +226,66 @@ module.exports = StyleSheet.create({
 	dayContainer:{
 		flex: 1,
 		marginBottom: 10,
-		borderTopWidth: 1,
-		borderBottomWidth: 1,
-		borderColor:'#5bc0de',
+		borderWidth: 1,
+		borderColor: '#c0c5ce',
 	},
+
+		dayHeader:{
+			height:availHeight/16,
+			backgroundColor: '#428bca',
+			justifyContent: 'center',
+			alignItems: 'center',
+			borderBottomWidth: 1,
+			borderColor: '#c0c5ce',
+		},
+
+		dayList:{
+			flex:1,
+		},
+
+			dayScrollViewComponent:{
+				flex:1,
+				width: deviceWidth/3,
+				padding:10,
+				borderRightWidth: 1,
+				borderColor: '#c0c5ce',
+			},
 
 	hourContainer:{
 		flex: 1,
 		marginBottom: 10,
-		borderTopWidth: 1,
-		borderBottomWidth: 1,
-		borderColor:'#5bc0de',
+		borderWidth: 1,
+		borderColor: '#c0c5ce',
 	},
 
-	dayScrollViewComponent:{
-		flex:1,
-		width: deviceWidth/3,
-		padding:10,
-		borderRightWidth: 1,
-		borderColor:'#5bc0de',
+		hourHeader:{
+			height:availHeight/16,
+			backgroundColor: '#428bca',
+			justifyContent: 'center',
+			alignItems: 'center',
+			borderBottomWidth: 1,
+			borderColor: '#c0c5ce',
+		},
+
+		hourList:{
+			flex:1,
+		},
+
+			hourScrollViewComponent:{
+				flex:1,
+				padding:10,
+				borderBottomWidth: 1,
+				borderColor: '#c0c5ce',
+			},
+
+	evenListItem:{
+		backgroundColor: '#5bc0de',
 	},
 
-	hourScrollViewComponent:{
-		flex:1,
-		padding:10,
-		borderBottomWidth: 1,
-		borderColor:'#5bc0de',
+	backToForecast:{
+		height:availHeight/16,
+		backgroundColor: '#428bca',
+		borderWidth: 1,
+		borderColor: '#c0c5ce',
 	},
 });
