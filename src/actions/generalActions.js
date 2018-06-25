@@ -1,4 +1,5 @@
 import {AsyncStorage} from 'react-native';
+import {LATITUDE_DELTA,LONGITUDE_DELTA} from '../constants/constant';
 
 export function firstTimeStorageInitFetch(){
 	return new Promise((resolve,reject) =>{
@@ -26,67 +27,72 @@ export function firstTimeStorageInitFetch(){
 				}
 			}
 		)
-		.catch(error => reject(error.message))
-
-		AsyncStorage.getItem('weatherData').then(
-			data =>{
-				if(data==null){
-					console.log("weather item == null");
-					AsyncStorage.setItem('weatherData', JSON.stringify({
-						weatherDescription:{
-							main: 'Clear',
-							description: 'clear sky', 
-							icon: '01d',
-						},
-						data:{
-							humidity:26,
-							pressure:1000,
-							temp:20.5,
-							temp_max:21,
-							temp_min:20,
-						}
-					}));
+		.then(previous =>{
+			console.log(previous);
+			AsyncStorage.getItem('weatherData').then(
+				data =>{
+					if(data==null){
+						console.log("weather item == null");
+						AsyncStorage.setItem('weatherData', JSON.stringify({
+							weatherDescription:{
+								main: 'Clear',
+								description: 'clear sky', 
+								icon: '01d',
+							},
+							data:{
+								humidity:26,
+								pressure:1000,
+								temp:20.5,
+								temp_max:21,
+								temp_min:20,
+							}
+						}));
+					}
 				}
-			}
-		)
-		.catch(error => reject(error.message))
-
-		AsyncStorage.getItem('advancedWeatherData').then(
-			data =>{
-				if(data==null){
-					console.log("advanced weather item == null");
-					AsyncStorage.setItem('advancedWeatherData', JSON.stringify({
-						'0':{
-							curDayData:{
-								day:9,
-								year:2018,
-								month:'June',
-								'12':{
-									hour:12,
-									weatherDescription:{
-										description:"clear sky",
-										icon:"02d",
-										id:800,
-										main:"Clear",
-									},
-									weatherData:{
-										grnd_level:1013.75,
-										humidity:34,
-										pressure:1013.75,
-										sea_level:1027.65,
-										temp:27.76,
-										temp_kf:0.24,
-										temp_max:27.76,
-										temp_min:27.52,
-									},
+			)
+		})
+		.then(previous =>{
+			console.log(previous);
+			AsyncStorage.getItem('advancedWeatherData').then(
+				data =>{
+					if(data==null){
+						console.log("advanced weather item == null");
+						AsyncStorage.setItem('advancedWeatherData', JSON.stringify({
+							'0':{
+								curDayData:{
+									day:9,
+									year:2018,
+									month:'June',
+									'12':{
+										hour:12,
+										weatherDescription:{
+											description:"clear sky",
+											icon:"02d",
+											id:800,
+											main:"Clear",
+										},
+										weatherData:{
+											grnd_level:1013.75,
+											humidity:34,
+											pressure:1013.75,
+											sea_level:1027.65,
+											temp:27.76,
+											temp_kf:0.24,
+											temp_max:27.76,
+											temp_min:27.52,
+										},
+									}
 								}
 							}
-						}
-					}));
+						}));
+					}
 				}
-			}
-		)
+			)
+		})
+		.then(previous =>{
+			console.log(previous);
+			resolve(true)	
+		})
 		.catch(error => reject(error.message))
-		resolve(true);
 	});
 }

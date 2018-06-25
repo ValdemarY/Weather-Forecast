@@ -72,7 +72,7 @@ class Forecast extends React.Component{
 							<View style={styles.cityName}>
 								<ResponsiveText
 									height={textConstants.LOCATION_NAME_FONT_SIZE}
-									text={this.props.location.chosenLocationDescription}
+									text={this.props.location.chosenLocationName}
 									color={'white'}
 								/>
 							</View>
@@ -84,7 +84,6 @@ class Forecast extends React.Component{
 								/>
 							</View>
 							<View style={styles.weatherInfo}>
-
 								<View style={styles.temperatureAndWeatherGraphics}>
 									<View style={styles.temperature}>
 										<Image
@@ -165,7 +164,6 @@ class Forecast extends React.Component{
 								</View>
 							</View>		
 						</View>
-						
 						<View style={styles.weatherButtonContainer}>
 							<View style={styles.weatherImage}>
 								<Image
