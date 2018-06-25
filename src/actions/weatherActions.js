@@ -49,6 +49,7 @@ export function weatherFetch(dispatch, location){
 
 export function advancedWeatherFetch(dispatch,location){
 	return new Promise((resolve,reject) =>{
+		console.log(location);
 		fetch(
 			'http://api.openweathermap.org/data/2.5/forecast?lat='+location.marker.coordinate.latitude+
 			'&lon='+location.marker.coordinate.longitude+

@@ -23,7 +23,7 @@ export function forecastQueryManager(){
 		facebookTokenFetch(dispatch)
 		.then(token => facebookUserFetch(dispatch,token))
 		.then(user => firstTimeStorageInitFetch())
-		.then(status => locationFetch(dispatch))
+		.then(status => locationFetch(status, dispatch))
 		.then(location => weatherFetch(dispatch,location))
 		.then(weather => dispatch(itemIsLoading(false)))
 		.catch(error => dispatch(errorHandler(error)))
