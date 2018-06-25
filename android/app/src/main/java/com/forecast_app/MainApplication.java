@@ -4,14 +4,10 @@ import android.app.Application;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
-import com.oblador.vectoricons.VectorIconsPackage;
-
-import com.AlexanderZaytsev.RNI18n.RNI18nPackage;
 import com.devfd.RNGeocoder.RNGeocoderPackage;
 import com.facebook.react.ReactApplication;
-import com.oblador.vectoricons.VectorIconsPackage;
 import com.facebook.reactnative.androidsdk.FBSDKPackage;
-import com.reactcommunity.rnlanguages.RNLanguagesPackage;
+//import com.reactcommunity.rnlanguages.RNLanguagesPackage;
 import com.airbnb.android.react.maps.MapsPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -39,11 +35,9 @@ public class MainApplication extends Application implements ReactApplication {
      protected List<ReactPackage> getPackages() {
          return Arrays.<ReactPackage>asList(
 			new MainReactPackage(),
-			new RNLanguagesPackage(),
+			//new RNLanguagesPackage(),
 			new MapsPackage(),
 			new RNGeocoderPackage(),
-			new RNI18nPackage(),
-			new VectorIconsPackage(),
 			new FBSDKPackage(mCallbackManager)
          );
      }
