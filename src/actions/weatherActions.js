@@ -20,11 +20,11 @@ export function weatherFetch(dispatch, location){
 					icon: weather.weather[0].icon,
 				},
 				data:{
-					humidity:weather.main.humidity,
-					pressure:weather.main.pressure,
-					temp:weather.main.temp,
-					temp_max:weather.main.temp_max,
-					temp_min:weather.main.temp_min,
+					humidity: Math.round(weather.main.humidity),
+					pressure: Math.round(weather.main.pressure),
+					temp: Math.round(weather.main.temp),
+					temp_max: Math.round(weather.main.temp_max),
+					temp_min: Math.round(weather.main.temp_min),
 				}
 			}
 			AsyncStorage.setItem('weatherData', JSON.stringify(weatherInfo));

@@ -19,11 +19,12 @@ import Geocoder from 'react-native-geocoder';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import Drawer from 'react-native-drawer';
-
 import SideBar from './components/SideBar';
 import LoadingScreen from './components/LoadingComponent';
 import ErrorScreen from './components/ErrorComponent';
-import {markerChange, googleTextInputChange, weatherQueryManager, passLocationDataToStorage} from './actions/action';
+import {itemIsLoading} from './actions/actionTransmitter';
+import {markerChange, googleTextInputChange, passLocationDataToStorage} from './actions/locationActions';
+import {weatherQueryManager} from './actions/action';
 import styles from './style/LocationStylesheet';
 import errorStyles from './style/ErrorStylesheet';
 import {APP_WIDTH,APP_HEIGHT,LATITUDE_DELTA,LONGITUDE_DELTA} from './constants/constant';
@@ -42,6 +43,10 @@ const mapStateToProps = (state) => {
     };
 };
 
+itemIsLoading: (bool) => {
+	dispatch(itemIsLoading(bool))
+}
+
 markerChange: (latitude,longitude,res) => {
 	dispatch(markerChange(latitude,longitude,res));
 }
@@ -59,7 +64,7 @@ weatherQueryManager: (location) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-	return bindActionCreators({markerChange, googleTextInputChange, passLocationDataToStorage, weatherQueryManager}, dispatch);
+	return bindActionCreators({markerChange, googleTextInputChange, passLocationDataToStorage, weatherQueryManager, itemIsLoading}, dispatch);
 };
 
 class Location extends React.Component{
@@ -73,7 +78,8 @@ class Location extends React.Component{
 
 	componentWillMount(){
 		console.log('LOCATION_MOUNT!');
-		this.checkConnection()
+		this.checkConnection();
+		this.props.itemIsLoading(false);
 	}
 
 	componentWillUnmount(){
@@ -121,7 +127,6 @@ class Location extends React.Component{
 			lng: longitude
 		})
 		.then(res =>{
-			console.log(this.props);
 			this.props.markerChange(latitude,longitude,res);
 			
 			this.googleAutoCompleteInput.setAddressText(this.props.location.chosenLocationDescription);
@@ -129,7 +134,7 @@ class Location extends React.Component{
 				this.props.location.marker.coordinate
 			,1000);
 		})
-		.catch(err => console.log(err))
+		.catch(err => console.log(err.message))
 	}
 
 	renderMainContent(){

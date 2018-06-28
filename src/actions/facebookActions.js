@@ -6,6 +6,20 @@ const {
 	AccessToken
 } = FBSDK;
 
+export function faceHandler(){
+	return new Promise((resolve,reject) =>{
+		LoginManager.logInWithReadPermissions(["email","public_profile"])
+		.then(result =>{
+			if (result.isCancelled) {
+				reject(false);
+			}else{
+				resolve(true);
+			}
+		})
+		.catch(error => reject(error.message))
+	});
+}
+
 export function facebookTokenFetch(dispatch){
 	return new Promise((resolve,reject) =>{
 		AccessToken.getCurrentAccessToken()
@@ -13,7 +27,7 @@ export function facebookTokenFetch(dispatch){
 			if(data==null){
 				dispatch(userLoginStatus(false))
 				dispatch(itemIsLoading(false))
-				resolve(false)
+				resolve(data)
 			}
 			else{
 				dispatch(userLoginStatus(true))
@@ -30,7 +44,7 @@ export function facebookTokenFetch(dispatch){
 
 export function facebookUserFetch(dispatch,token){
 	return new Promise((resolve,reject) =>{
-		fetch('https://graph.facebook.com/v2.5/me?fields=email,name&access_token='+token)
+		fetch('https://graph.facebook.com/v2.5/me?fields=name&access_token='+token)
 		.then((response) => response.json())
 		.then((userInfo) =>{
 			AsyncStorage.setItem('userData', JSON.stringify(userInfo.name));

@@ -1,20 +1,32 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
-import {WINDOW_WIDTH, WINDOW_HEIGHT, APP_WIDTH, APP_HEIGHT, APP_CONTAINER_MARGIN, APP_CONTAINER_PADDING} from '../constants/constant';
+import {
+	WINDOW_WIDTH, 
+	WINDOW_HEIGHT, 
+	APP_WIDTH, 
+	APP_HEIGHT, 
+	APP_CONTAINER_MARGIN, 
+	APP_CONTAINER_PADDING,
+	SCREEN_CONTAINER_COLOR,
+	SCREEN_BACKGROUND_COLOR,
+	WHITE_COLOR,
+	GRAY_BORDER_COLOR,
+	LOCATION_BUTTON_COLOR
+} from '../constants/constant';
 import {BASIC_TEXT_VIEW_HEIGHT, BASIC_FONT_SIZE} from '../constants/responsiveConstForecast';
 
 export default StyleSheet.create({
 	screenContainer:{
 		height: WINDOW_HEIGHT,
 		width: WINDOW_WIDTH,
-		backgroundColor: '#428bca',
+		backgroundColor: SCREEN_CONTAINER_COLOR,
 	},
 
 	componentContainer:{
 		flex:1,
 		margin:APP_CONTAINER_MARGIN,
 		padding:APP_CONTAINER_PADDING,
-		backgroundColor:'#f9f9f9',
+		backgroundColor:SCREEN_BACKGROUND_COLOR,
 	},
 
 	textFont:{
@@ -52,11 +64,11 @@ export default StyleSheet.create({
 		padding: 13,
 		height: 44,
 		flexDirection: 'row',
-		backgroundColor: '#f9f9f9',
+		backgroundColor: SCREEN_BACKGROUND_COLOR,
 	},
 
 	textInput: {
-		backgroundColor: '#FFFFFF',
+		backgroundColor: WHITE_COLOR,
 		height: 28,
 		borderRadius: 5,
 		paddingTop: 4.5,
@@ -78,12 +90,12 @@ export default StyleSheet.create({
 	poweredContainer: {
 		justifyContent: 'flex-end',
 		alignItems: 'center',
-		backgroundColor: '#428bca',
+		backgroundColor: SCREEN_CONTAINER_COLOR,
 	},
 
 	separator: {
 		height: StyleSheet.hairlineWidth,
-		backgroundColor: '#f9f9f9',
+		backgroundColor: SCREEN_BACKGROUND_COLOR,
 	},
 
 	buttonLocationToForecast:{
@@ -91,13 +103,13 @@ export default StyleSheet.create({
 		bottom: 0,
 		height: 44,
 		width: '100%',
-		backgroundColor: '#3570a3',
+		backgroundColor: LOCATION_BUTTON_COLOR,
 		alignItems: 'center',
 		justifyContent: 'center',
 	},
 
 	textLocationToForecast:{
-		color:'white',
+		color:WHITE_COLOR,
 		fontFamily:'Roboto-Light',
 		fontSize: 15,
 	},

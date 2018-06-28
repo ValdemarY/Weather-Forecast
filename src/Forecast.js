@@ -88,7 +88,7 @@ class Forecast extends React.Component{
 									<View style={styles.temperature}>
 										<Image
 											style={styles.temperatureIcon}
-											source={require('./images/thermometer.png')} 
+											source={requireIcon('thermometer')} 
 										/>
 										<ResponsiveText
 											width={textConstants.FORECAST_CONTAINER_WIDTH}
@@ -113,7 +113,7 @@ class Forecast extends React.Component{
 										<View style={styles.leftWeatherInfo}>
 											<Image
 												style={[styles.otherWeatherInfoIcon,styles.leftIcon]}
-												source={require('./images/freezing.png')} 
+												source={requireIcon('freezing')} 
 											/>
 											<ResponsiveText
 												width={textConstants.FORECAST_CONTAINER_WIDTH}
@@ -131,7 +131,7 @@ class Forecast extends React.Component{
 											/>
 											<Image
 												style={[styles.otherWeatherInfoIcon,styles.rightIcon]}
-												source={require('./images/humidity.png')} 
+												source={requireIcon('humidity')} 
 											/>
 										</View>
 									</View>
@@ -139,7 +139,7 @@ class Forecast extends React.Component{
 										<View style={styles.leftWeatherInfo}>
 											<Image
 												style={[styles.otherWeatherInfoIcon,styles.leftIcon]}
-												source={require('./images/temperature.png')} 
+												source={requireIcon('temperature')} 
 											/>
 											<ResponsiveText
 												width={textConstants.FORECAST_CONTAINER_WIDTH}
@@ -157,7 +157,7 @@ class Forecast extends React.Component{
 											/>
 											<Image
 												style={[styles.otherWeatherInfoIcon,styles.rightIcon]}
-												source={require('./images/barometer.png')} 
+												source={requireIcon('barometer')} 
 											/>
 										</View>
 									</View>
@@ -168,7 +168,7 @@ class Forecast extends React.Component{
 							<View style={styles.weatherImage}>
 								<Image
 									style={styles.image}
-									source={require('./images/grass.jpg')} 
+									source={requireImage('grass')} 
 								/>
 							</View>
 							<TouchableOpacity
@@ -189,13 +189,14 @@ class Forecast extends React.Component{
 							<View style={styles.locationImage}>
 								<Image
 									style={styles.image}
-									source={require('./images/world_map.png')} 
+									source={requireImage('map')} 
 								/>
 							</View>
 							<TouchableOpacity
 								style={styles.locationButton}
 								onPress = {() => {
-									this.props.navigation.navigate('Location',{weatherUpdate:this.weatherUpdate})
+									this.props.itemIsLoading(true);
+									this.props.navigation.navigate('Location')
 								}}
 							>
 								<ResponsiveText
