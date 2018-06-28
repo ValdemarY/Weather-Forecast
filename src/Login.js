@@ -13,6 +13,7 @@ import {LoginManager} from 'react-native-fbsdk';
 
 import ErrorScreen from './components/ErrorComponent';
 import {itemIsLoading} from './actions/actionTransmitter';
+import {faceHandler} from './actions/facebookActions';
 import {loginQueryManager} from './actions/action';
 import styles from './style/LoginStylesheet';
 
@@ -56,19 +57,12 @@ class Login extends React.Component{
 	}
 
 	loginUser(){
-		LoginManager.logInWithReadPermissions(["email","public_profile"]).then(
-			(result) =>{
-				if (result.isCancelled) {
-					Alert.alert('Login cancelled: ' + result);
-				}else{
-					this.props.itemIsLoading(true);
-					this.props.navigation.replace('Forecast');
-				}
-			},
-			(error) => {
-				Alert.alert('Login fail with error: ' + error);
-			}
-		);
+		faceHandler()
+		.then(result =>{
+			this.props.itemIsLoading(true);
+			this.props.navigation.replace('Forecast')
+		})
+		.catch(error => error !== false && Alert.alert('Error: ',error))
 	}
 
 	render(){
@@ -77,7 +71,7 @@ class Login extends React.Component{
 		}
 		else if(this.props.isLoggedIn || this.props.isLoading){
 			return(
-				<View style={[styles.screenContainer,styles.centered]}></View>
+				<View style={styles.screenContainer}></View>
 			);
 		}
 		else{

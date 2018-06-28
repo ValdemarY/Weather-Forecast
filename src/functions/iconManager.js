@@ -1,5 +1,25 @@
+import {
+	D01_COLOR,
+	D02_COLOR,
+	D03_COLOR,
+	D04_COLOR,
+	D09_COLOR,
+	D10_COLOR,
+	D11_COLOR,
+	D50_COLOR,
+	N01_COLOR,
+	N03_COLOR,
+	N04_COLOR,
+	N09_COLOR,
+	N11_COLOR,
+	N13_COLOR
+} from '../constants/constant';
+
 export function requireImage(string){
 	switch(string){
+		case 'grass': return require('../images/grass.jpg');
+		case 'map': return require('../images/world_map.png');
+
 		case '01d': return require('../images/01d.png');
 		case '02d': return require('../images/02d.png');
 		case '03d': return require('../images/03d.png');
@@ -26,32 +46,38 @@ export function requireImage(string){
 
 export function requireColor(string){
 	switch(string){
-		case '01d': return '#ffa700';
-		case '02d': return '#999999';
-		case '03d': return '#777777';
-		case '04d': return '#555555';
-		case '09d': return '#4f5b66';
-		case '10d': return '#a7adba';
-		case '11d': return '#3b444b';
-		case '13d': return '#4f5b66';
-		case '50d': return '#000000';
+		case '01d': return D01_COLOR;
+		case '02d': return D02_COLOR;
+		case '03d': return D03_COLOR;
+		case '04d': return D04_COLOR;
+		case '09d': return D09_COLOR;
+		case '10d': return D10_COLOR;
+		case '11d': return D11_COLOR;
+		case '13d': return D09_COLOR;
+		case '50d': return D50_COLOR;
 
-		case '01n': return '#151515';
-		case '02n': return '#555555';
-		case '03n': return '#333333';
-		case '04n': return '#272727';
-		case '09n': return '#343d46';
-		case '10n': return '#4f5b66';
-		case '11n': return '#353839';
-		case '13n': return '#343d46';
-		case '50n': return '#000000';
+		case '01n': return N01_COLOR;
+		case '02n': return D04_COLOR;
+		case '03n': return N03_COLOR;
+		case '04n': return N04_COLOR;
+		case '09n': return N09_COLOR;
+		case '10n': return D09_COLOR;
+		case '11n': return N11_COLOR;
+		case '13n': return N13_COLOR;
+		case '50n': return D50_COLOR;
 
-		default: return '#000000';
+		default: return D50_COLOR;
 	}
 }
 
 export function requireIcon(string){
 	switch(string){
+		case 'thermometer': return require('../images/thermometer.png');
+		case 'freezing': return require('../images/freezing.png');
+		case 'humidity': return require('../images/humidity.png');
+		case 'temperature': return require('../images/temperature.png');
+		case 'barometer': return require('../images/barometer.png');
+
 		case '01d': return require('../images/sun.png');
 		case '02d': return require('../images/cloudy-day.png');
 		case '03d': return require('../images/cloud.png');

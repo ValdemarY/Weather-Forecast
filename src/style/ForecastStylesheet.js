@@ -1,6 +1,18 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
-import {WINDOW_WIDTH, WINDOW_HEIGHT, APP_WIDTH, APP_HEIGHT, APP_CONTAINER_MARGIN, APP_CONTAINER_PADDING} from '../constants/constant';
+import {
+	WINDOW_WIDTH, 
+	WINDOW_HEIGHT, 
+	APP_WIDTH, 
+	APP_HEIGHT, 
+	APP_CONTAINER_MARGIN, 
+	APP_CONTAINER_PADDING,
+	SCREEN_CONTAINER_COLOR,
+	SCREEN_BACKGROUND_COLOR,
+	WHITE_COLOR,
+	GRAY_BORDER_COLOR,
+	WEATHER_BUTTON_COLOR
+} from '../constants/constant';
 import {FORECAST_CONTAINER_WIDTH, FORECAST_INFO_CONTAINER_HEIGHT, FORECAST_TEMPERATURE_FONT_SIZE} from '../constants/responsiveConstForecast';
 
 // weatherContainer = 3/5: every view inside = 1/8 ~ 3/40 of all APP_HEIGHT; weatherButtonContainer = 1/5; locationButtonContainer = 1/5;
@@ -9,14 +21,14 @@ export default StyleSheet.create({
 	screenContainer:{
 		height: WINDOW_HEIGHT,
 		width: WINDOW_WIDTH,
-		backgroundColor: '#428bca',
+		backgroundColor: SCREEN_CONTAINER_COLOR,
 	},
 
 	componentContainer:{
 		flex:1,
 		margin:APP_CONTAINER_MARGIN,
 		padding:APP_CONTAINER_PADDING,
-		backgroundColor:'#f9f9f9',
+		backgroundColor:SCREEN_BACKGROUND_COLOR,
 	},
 
 	textFont:{
@@ -39,7 +51,7 @@ export default StyleSheet.create({
 
 	weatherContainer:{
 		borderWidth: 1,
-		borderColor: '#c0c5ce',
+		borderColor: GRAY_BORDER_COLOR,
 		flex: 3,
 		marginBottom: APP_CONTAINER_MARGIN,
 	},
@@ -61,7 +73,7 @@ export default StyleSheet.create({
 			justifyContent: 'center',
 			alignItems: 'flex-start',
 			borderBottomWidth: 1,
-			borderColor: '#FFFFFF' ,
+			borderColor: WHITE_COLOR ,
 		},
 
 		weatherInfo:{
@@ -72,7 +84,7 @@ export default StyleSheet.create({
 				flex:3,
 				flexDirection: 'row',
 				borderBottomWidth: 1,
-				borderColor: '#FFFFFF'
+				borderColor: WHITE_COLOR
 			},
 
 				temperature:{
@@ -98,7 +110,7 @@ export default StyleSheet.create({
 						width: FORECAST_CONTAINER_WIDTH*2/3,
 						height: FORECAST_CONTAINER_WIDTH*2/3,
 						borderRadius: 90,
-						backgroundColor: 'white',
+						backgroundColor: WHITE_COLOR,
 						justifyContent:'center',
 						alignItems:'center',
 					},
@@ -148,7 +160,7 @@ export default StyleSheet.create({
 
 	weatherButtonContainer:{
 		borderWidth: 1,
-		borderColor: '#c0c5ce',
+		borderColor: GRAY_BORDER_COLOR,
 		flex: 1,
 		marginBottom: APP_CONTAINER_MARGIN,
 	},
@@ -160,12 +172,12 @@ export default StyleSheet.create({
 			flex:1,
 			alignItems: 'center',
 			justifyContent: 'center',
-			backgroundColor: '#5cb85c',
+			backgroundColor: WEATHER_BUTTON_COLOR,
 		},
 
 	locationButtonContainer:{
 		borderWidth: 1,
-		borderColor: '#c0c5ce',
+		borderColor: GRAY_BORDER_COLOR,
 		flex: 1,
 	},
 
@@ -177,7 +189,7 @@ export default StyleSheet.create({
 			flex:1,
 			alignItems: 'center',
 			justifyContent: 'center',
-			backgroundColor: '#428bca',
+			backgroundColor: SCREEN_CONTAINER_COLOR,
 		},
 
 	image:{

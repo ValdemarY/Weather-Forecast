@@ -36,3 +36,28 @@ export const MONTH_NAMES = ["January", "February", "March", "April", "May", "Jun
 ];
 export const DAY_NAMES = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
+export const SCREEN_CONTAINER_COLOR = '#428bca';
+export const SCREEN_BACKGROUND_COLOR = '#f9f9f9';
+export const WHITE_COLOR = '#FFFFFF';
+export const GRAY_BORDER_COLOR = '#c0c5ce';
+export const WEATHER_BUTTON_COLOR = '#5cb85c';
+export const LIGHT_CONTAINER_COLOR = '#5bc0de';
+export const LOCATION_BUTTON_COLOR = '#3570a3';
+export const ERROR_CONTAINER_COLOR = '#d9534f';
+export const ERROR_BUTTON_COLOR = '#9f3c39';
+
+export const D01_COLOR = '#ffa700';
+export const D02_COLOR = '#999999';
+export const D03_COLOR = '#777777';
+export const D04_COLOR = '#555555';
+export const D09_COLOR = '#4f5b66';
+export const D10_COLOR = '#a7adba';
+export const D11_COLOR = '#3b444b';
+export const D50_COLOR = '#000000';
+
+export const N01_COLOR = '#151515';
+export const N03_COLOR = '#333333';
+export const N04_COLOR = '#272727';
+export const N09_COLOR = '#343d46';
+export const N11_COLOR = '#353839';
+export const N13_COLOR = '#343d46';

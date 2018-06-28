@@ -1,20 +1,30 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
-import {WINDOW_WIDTH, WINDOW_HEIGHT, APP_WIDTH, APP_HEIGHT, APP_CONTAINER_MARGIN, APP_CONTAINER_PADDING} from '../constants/constant';
+import {
+	WINDOW_WIDTH, 
+	WINDOW_HEIGHT, 
+	APP_WIDTH, 
+	APP_HEIGHT, 
+	APP_CONTAINER_MARGIN, 
+	APP_CONTAINER_PADDING,
+	SCREEN_CONTAINER_COLOR,
+	SCREEN_BACKGROUND_COLOR,
+	WHITE_COLOR,
+	GRAY_BORDER_COLOR
+} from '../constants/constant';
 import {BASIC_TEXT_VIEW_HEIGHT, BASIC_FONT_SIZE} from '../constants/responsiveConstForecast';
 
 export default StyleSheet.create({
-	//стили использущиеся всеми скринами из StackNavigator
 	screenContainer:{
 		flex: 1,
-		backgroundColor: '#428bca',
+		backgroundColor: SCREEN_CONTAINER_COLOR,
 	},
 
 	componentContainer:{
 		flex:1,
 		margin:APP_CONTAINER_MARGIN,
 		padding:APP_CONTAINER_PADDING,
-		backgroundColor:'#f9f9f9',
+		backgroundColor:SCREEN_BACKGROUND_COLOR,
 	},
 
 	textFont:{
@@ -60,7 +70,7 @@ export default StyleSheet.create({
 
 	loginButton:{
 		height:BASIC_TEXT_VIEW_HEIGHT,
-		backgroundColor: '#428bca',
+		backgroundColor: SCREEN_CONTAINER_COLOR,
 		alignItems: 'center',
 		justifyContent: 'center',
 	},
@@ -68,6 +78,6 @@ export default StyleSheet.create({
 	loginButtonText:{
 		fontSize: BASIC_FONT_SIZE,
 		fontFamily: 'Roboto-Light',
-		color:'#FFFFFF',
+		color:WHITE_COLOR,
 	}
 });

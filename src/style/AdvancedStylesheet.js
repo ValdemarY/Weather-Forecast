@@ -1,20 +1,34 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
-import {WINDOW_WIDTH, WINDOW_HEIGHT, APP_WIDTH, APP_HEIGHT, APP_CONTAINER_MARGIN, APP_CONTAINER_PADDING} from '../constants/constant';
+import {
+	WINDOW_WIDTH, 
+	WINDOW_HEIGHT, 
+	APP_WIDTH, 
+	APP_HEIGHT, 
+	APP_CONTAINER_MARGIN, 
+	APP_CONTAINER_PADDING,
+	SCREEN_CONTAINER_COLOR,
+	SCREEN_BACKGROUND_COLOR,
+	WHITE_COLOR,
+	GRAY_BORDER_COLOR,
+	LIGHT_CONTAINER_COLOR,
+	D01_COLOR,
+	D50_COLOR
+} from '../constants/constant';
 import {BASIC_TEXT_VIEW_HEIGHT, BASIC_FONT_SIZE} from '../constants/responsiveConstForecast';
 
 export default StyleSheet.create({
 	screenContainer:{
 		height: WINDOW_HEIGHT,
 		width: WINDOW_WIDTH,
-		backgroundColor: '#428bca',
+		backgroundColor: SCREEN_CONTAINER_COLOR,
 	},
 
 	componentContainer:{
 		flex:1,
 		margin:APP_CONTAINER_MARGIN,
 		padding:APP_CONTAINER_PADDING,
-		backgroundColor:'#f9f9f9',
+		backgroundColor:SCREEN_BACKGROUND_COLOR,
 	},
 
 	textFont:{
@@ -39,20 +53,20 @@ export default StyleSheet.create({
 		flex: 5,
 		marginBottom: APP_CONTAINER_MARGIN,
 		borderWidth: 1,
-		borderColor: '#c0c5ce',
+		borderColor: GRAY_BORDER_COLOR,
 	},
 
 		dayHeader:{
 			height:BASIC_TEXT_VIEW_HEIGHT,
-			backgroundColor: '#428bca',
+			backgroundColor: SCREEN_CONTAINER_COLOR,
 			justifyContent: 'center',
 			alignItems: 'center',
 			borderBottomWidth: 1,
-			borderColor: '#c0c5ce',
+			borderColor: GRAY_BORDER_COLOR,
 		},
 
 			dayHeaderText:{
-				color:'white',
+				color:WHITE_COLOR,
 				fontFamily:'Roboto-Light',
 				fontSize:BASIC_FONT_SIZE,
 			},
@@ -72,15 +86,15 @@ export default StyleSheet.create({
 					width: APP_WIDTH/2.5,
 					padding:10,
 					borderRightWidth: 1,
-					borderColor: '#c0c5ce',
+					borderColor: GRAY_BORDER_COLOR,
 				},
 
 					minTemp:{
-						color:'#000000'
+						color:D01_COLOR,
 					},
 
 					maxTemp:{
-						color:'#ffa700'
+						color:D50_COLOR,
 					},
 
 					marginBetweenBlocks:{
@@ -91,20 +105,20 @@ export default StyleSheet.create({
 		flex: 3,
 		marginBottom: APP_CONTAINER_MARGIN,
 		borderWidth: 1,
-		borderColor: '#c0c5ce',
+		borderColor: GRAY_BORDER_COLOR,
 	},
 
 		hourHeader:{
 			height:BASIC_TEXT_VIEW_HEIGHT,
-			backgroundColor: '#428bca',
+			backgroundColor: SCREEN_CONTAINER_COLOR,
 			justifyContent: 'center',
 			alignItems: 'center',
 			borderBottomWidth: 1,
-			borderColor: '#c0c5ce',
+			borderColor: GRAY_BORDER_COLOR,
 		},
 
 			hourHeaderText:{
-				color:'white',
+				color:WHITE_COLOR,
 				fontFamily:'Roboto-Light',
 				fontSize:BASIC_FONT_SIZE,
 			},
@@ -117,7 +131,7 @@ export default StyleSheet.create({
 				flex:1,
 				padding:10,
 				borderBottomWidth: 1,
-				borderColor: '#c0c5ce',
+				borderColor: GRAY_BORDER_COLOR,
 			},
 
 				weatherIcon:{
@@ -126,14 +140,14 @@ export default StyleSheet.create({
 				},
 
 	evenListItem:{
-		backgroundColor: '#5bc0de',
+		backgroundColor: LIGHT_CONTAINER_COLOR,
 	},
 
 	backToForecast:{
 		height:BASIC_TEXT_VIEW_HEIGHT,
-		backgroundColor: '#428bca',
+		backgroundColor: SCREEN_CONTAINER_COLOR,
 		borderWidth: 1,
-		borderColor: '#c0c5ce',
+		borderColor: GRAY_BORDER_COLOR,
 		justifyContent: 'center',
 		alignItems: 'center',
 	},
@@ -145,7 +159,7 @@ export default StyleSheet.create({
 		},
 
 			backToForecastButtonText:{
-				color:'white',
+				color:WHITE_COLOR,
 				fontFamily:'Roboto-Light',
 				fontSize:BASIC_FONT_SIZE,
 			},

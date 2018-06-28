@@ -178,6 +178,7 @@ class AdvancedForecast extends React.Component{
 							</View>
 							<ScrollView
 								style={styles.hourList}
+								showsHorizontalScrollIndicator={true}
 							>
 								{this.getHourlyWeather()}
 							</ScrollView>
